@@ -7,6 +7,12 @@
   <properties>
     <pipeline-maven.version>1700.v5b_e2f3ec1f8d</pipeline-maven.version>
   </properties>
+  <repositories>
+    <repository>
+      <id>jenkins-releases</id>
+      <url>https://repo.jenkins-ci.org/releases/</url>
+    </repository>
+  </repositories>
   <dependencies>
     <dependency>
       <groupId>org.jenkins-ci.plugins</groupId>

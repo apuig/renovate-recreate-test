@@ -5,7 +5,7 @@
   <artifactId>renovate-test</artifactId>
   <version>1.0</version>
   <properties>
-    <pipeline-maven.version>1700.v5b_e2f3ec1f8d</pipeline-maven.version>
+    <pipeline-maven.version>1735.v63b_5b_1b_d25d9</pipeline-maven.version>
   </properties>
   <repositories>
     <repository>

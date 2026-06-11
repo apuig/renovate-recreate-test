@@ -1,6 +1,6 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "prHourlyLimit": 0,
+  "enabledManagers": ["custom.regex"],
   "customManagers": [
     {
       "customType": "regex",
@@ -13,14 +13,7 @@
     {
       "matchDatasources": ["jenkins-plugins"],
       "minimumReleaseAge": "0 seconds",
-      "ignoreUnstable": false,
-      "recreateWhen": "always"
-    },
-    {
-      "matchDatasources": ["maven"],
-      "matchPackagePrefixes": ["org.jenkins-ci.plugins:"],
-      "registryUrls": ["https://repo.jenkins-ci.org/releases/"],
-      "enabled": false
+      "ignoreUnstable": false
     }
   ]
 }

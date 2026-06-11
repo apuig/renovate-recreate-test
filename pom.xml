@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>test</groupId>
+  <artifactId>renovate-test</artifactId>
+  <version>1.0</version>
+  <properties>
+    <pipeline-maven.version>1700.v5b_e2f3ec1f8d</pipeline-maven.version>
+  </properties>
+  <dependencies>
+    <dependency>
+      <groupId>org.jenkins-ci.plugins</groupId>
+      <artifactId>pipeline-maven</artifactId>
+      <version>${pipeline-maven.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.jenkins-ci.plugins</groupId>
+      <artifactId>pipeline-maven-api</artifactId>
+      <version>${pipeline-maven.version}</version>
+    </dependency>
+  </dependencies>
+</project>

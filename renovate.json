@@ -13,7 +13,8 @@
     {
       "matchDatasources": ["jenkins-plugins"],
       "minimumReleaseAge": "0 seconds",
-      "ignoreUnstable": false
+      "ignoreUnstable": false,
+      "recreateWhen": "always"
     }
   ]
 }

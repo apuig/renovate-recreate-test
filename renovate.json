@@ -13,6 +13,11 @@
       "matchDatasources": ["jenkins-plugins"],
       "minimumReleaseAge": "0 seconds",
       "ignoreUnstable": false
+    },
+    {
+      "matchDatasources": ["maven"],
+      "matchPackagePrefixes": ["org.jenkins-ci.plugins:"],
+      "registryUrls": ["https://repo.jenkins-ci.org/releases/"]
     }
   ]
 }

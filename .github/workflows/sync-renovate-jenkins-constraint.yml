@@ -1,0 +1,71 @@
+name: Sync Renovate jenkins constraint from pom.xml
+
+on:
+  push:
+    branches: [main]
+    paths: [pom.xml]
+
+concurrency:
+  group: sync-renovate-jenkins-constraint
+  cancel-in-progress: false
+
+jobs:
+  sync-constraint:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Check if jenkins.version changed
+        id: check
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          OLD_RAW="$(git show "${{ github.event.before }}:pom.xml" | sed -n 's:.*<jenkins\.version>\([^<]*\)</jenkins\.version>.*:\1:p' | head -n1)"
+          NEW_RAW="$(git show "${{ github.sha }}:pom.xml" | sed -n 's:.*<jenkins\.version>\([^<]*\)</jenkins\.version>.*:\1:p' | head -n1)"
+
+          OLD_COMMUNITY="$(echo "$OLD_RAW" | sed 's/-cb-.*//')"
+          NEW_COMMUNITY="$(echo "$NEW_RAW" | sed 's/-cb-.*//')"
+
+          if [ "$OLD_COMMUNITY" != "$NEW_COMMUNITY" ]; then
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+            echo "community_version=$NEW_COMMUNITY" >> "$GITHUB_OUTPUT"
+            echo "jenkins.version changed: $OLD_RAW -> $NEW_RAW (community: $OLD_COMMUNITY -> $NEW_COMMUNITY)"
+          else
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "jenkins.version community part unchanged ($OLD_COMMUNITY), skipping"
+          fi
+
+      - name: Update constraints.jenkins in renovate.json
+        if: steps.check.outputs.changed == 'true'
+        env:
+          VERSION: ${{ steps.check.outputs.community_version }}
+        run: |
+          sed -i "s/\"jenkins\": \">=.*\"/\"jenkins\": \">=${VERSION}\"/" .github/renovate.json
+
+      - name: Open PR
+        if: steps.check.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          BRANCH="sync-renovate-jenkins-constraint-${{ steps.check.outputs.community_version }}"
+          if git ls-remote --exit-code origin "refs/heads/$BRANCH" >/dev/null 2>&1; then
+            echo "Branch $BRANCH already exists — PR already open, nothing to do."
+            exit 0
+          fi
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout -b "$BRANCH"
+          git add .github/renovate.json
+          git commit -m "Sync renovate constraints.jenkins to >=${{ steps.check.outputs.community_version }}"
+          git push origin "$BRANCH"
+          gh pr create \
+            --title "Sync renovate constraints.jenkins to >=${{ steps.check.outputs.community_version }}" \
+            --body "Automated sync of \`.github/renovate.json\` \`constraints.jenkins\` after jenkins.version bump to \`${{ steps.check.outputs.community_version }}\`." \
+            --base main \
+            --head "$BRANCH"

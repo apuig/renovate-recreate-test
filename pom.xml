@@ -2,21 +2,13 @@
 <project>
   <modelVersion>4.0.0</modelVersion>
   <groupId>test</groupId>
-  <artifactId>renovate-test</artifactId>
+  <artifactId>sync-constraint-test</artifactId>
   <version>1.0</version>
   <properties>
-    <pipeline-maven.version>1700.v5b_e2f3ec1f8d</pipeline-maven.version>
+    <!-- CB-qualified jenkins.version: community part is 2.452.4 -->
+    <jenkins.version>2.452.4-cb-5</jenkins.version>
+    <!-- Pin to older version so Renovate has an update to propose -->
+    <!-- workflow-job latest requires core 2.516.3; starting constraint is 2.452.4 so latest is blocked -->
+    <workflow-job.version>1571.1578.v7d89b_831ece9</workflow-job.version>
   </properties>
-<dependencies>
-    <dependency>
-      <groupId>org.jenkins-ci.plugins</groupId>
-      <artifactId>pipeline-maven</artifactId>
-      <version>${pipeline-maven.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.jenkins-ci.plugins</groupId>
-      <artifactId>pipeline-maven-api</artifactId>
-      <version>${pipeline-maven.version}</version>
-    </dependency>
-  </dependencies>
 </project>

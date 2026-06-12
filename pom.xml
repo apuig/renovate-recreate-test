@@ -5,9 +5,15 @@
   <artifactId>constraints-semantics-test</artifactId>
   <version>1.0</version>
   <properties>
-    <!-- workflow-job latest=1581.ve4b_d0db_fcb_b_b_ requiredCore=2.556 -->
-    <!-- workflow-job 1571.1580.v18e46842c125 requiredCore=2.516.3  -->
-    <!-- pinned to old so Renovate has updates to consider -->
-    <workflow-job.version>1416.v9f9e862b_a_e4d</workflow-job.version>
+    <!-- git plugin version landscape:
+         5.5.2  requiredCore=2.440.3  (last compatible with Jenkins 2.452.4)
+         5.6.0  requiredCore=2.479    (first needing Jenkins 2.479+)
+         5.7.0  requiredCore=2.479.1
+         5.10.1 requiredCore=2.504.3  (UC latest)
+         We pin to 5.4.0 so there are updates to consider in all tiers. -->
+    <git.version>5.4.0</git.version>
+    <!-- Jenkins version expressed as CB-qualified.
+         Community part: 2.452.4 → constraints.jenkins set to >=2.452.4 -->
+    <jenkins.version>2.452.4-cb-5</jenkins.version>
   </properties>
 </project>

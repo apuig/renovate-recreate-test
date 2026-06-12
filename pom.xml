@@ -11,7 +11,7 @@
          5.7.0  requiredCore=2.479.1
          5.10.1 requiredCore=2.504.3  (UC latest)
          We pin to 5.4.0 so there are updates to consider in all tiers. -->
-    <git.version>5.4.0</git.version>
+    <git.version>5.5.2</git.version>
     <!-- Jenkins version expressed as CB-qualified.
          Community part: 2.452.4 → constraints.jenkins set to >=2.452.4 -->
     <jenkins.version>2.452.4-cb-5</jenkins.version>

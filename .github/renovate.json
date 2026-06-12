@@ -14,7 +14,7 @@
     {
       "matchDatasources": ["jenkins-plugins"],
       "constraintsFiltering": "strict",
-      "constraints": { "jenkins": ">=2.452.4" },
+      "constraints": { "jenkins": ">=2.479.1" },
       "ignoreUnstable": false,
       "minimumReleaseAge": "0 seconds",
       "recreateWhen": "always",

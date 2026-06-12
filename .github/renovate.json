@@ -12,6 +12,8 @@
   "packageRules": [
     {
       "matchDatasources": ["jenkins-plugins"],
+      "constraintsFiltering": "strict",
+      "constraints": { "jenkins": ">=2.555.3" },
       "ignoreUnstable": false,
       "minimumReleaseAge": "0 seconds",
       "recreateWhen": "always",

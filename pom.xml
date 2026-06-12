@@ -2,11 +2,12 @@
 <project>
   <modelVersion>4.0.0</modelVersion>
   <groupId>test</groupId>
-  <artifactId>unstable-version-test</artifactId>
+  <artifactId>constraints-semantics-test</artifactId>
   <version>1.0</version>
   <properties>
-    <!-- sonargraph-integration: latest stable=5.0.2, latest RC=5.0.3-rc316 (2025-10-23) -->
-    <!-- With ignoreUnstable:false -> should propose RC; with default true -> should propose 5.0.2 -->
-    <sonargraph-integration.version>5.0.1</sonargraph-integration.version>
+    <!-- workflow-job latest=1581.ve4b_d0db_fcb_b_b_ requiredCore=2.556 -->
+    <!-- workflow-job 1571.1580.v18e46842c125 requiredCore=2.516.3  -->
+    <!-- pinned to old so Renovate has updates to consider -->
+    <workflow-job.version>1416.v9f9e862b_a_e4d</workflow-job.version>
   </properties>
 </project>

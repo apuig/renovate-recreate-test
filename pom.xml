@@ -9,6 +9,6 @@
     <jenkins.version>2.516.3-cb-99999</jenkins.version>
     <!-- Pin to older version so Renovate has an update to propose -->
     <!-- workflow-job latest requires core 2.516.3; starting constraint is 2.452.4 so latest is blocked -->
-    <workflow-job.version>1571.1578.v7d89b_831ece9</workflow-job.version>
+    <workflow-job.version>1571.1580.v18e46842c125</workflow-job.version>
   </properties>
 </project>

@@ -7,6 +7,6 @@
   <properties>
     <!-- sonargraph-integration: latest stable=5.0.2, latest RC=5.0.3-rc316 (2025-10-23) -->
     <!-- With ignoreUnstable:false -> should propose RC; with default true -> should propose 5.0.2 -->
-    <sonargraph-integration.version>5.0.1</sonargraph-integration.version>
+    <sonargraph-integration.version>5.0.3-rc316.005b_0ed72e5b_</sonargraph-integration.version>
   </properties>
 </project>

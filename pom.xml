@@ -2,13 +2,10 @@
 <project>
   <modelVersion>4.0.0</modelVersion>
   <groupId>test</groupId>
-  <artifactId>sync-constraint-test</artifactId>
+  <artifactId>unstable-version-test</artifactId>
   <version>1.0</version>
   <properties>
-    <!-- CB-qualified jenkins.version: community part is 2.452.4 -->
-    <jenkins.version>2.516.3-cb-99999</jenkins.version>
-    <!-- Pin to older version so Renovate has an update to propose -->
-    <!-- workflow-job latest requires core 2.516.3; starting constraint is 2.452.4 so latest is blocked -->
-    <workflow-job.version>1571.1578.v7d89b_831ece9</workflow-job.version>
+    <!-- Pin to 2.7.1 stable; allowedVersions '<2.8.0' will make Renovate propose 2.8.0-rc3 -->
+    <opentelemetry.version>2.7.1</opentelemetry.version>
   </properties>
 </project>

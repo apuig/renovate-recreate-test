@@ -1,7 +1,6 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "enabledManagers": ["custom.regex"],
-  "ignoreDeps": ["jenkins"],
   "customManagers": [
     {
       "customType": "regex",
@@ -13,10 +12,10 @@
   "packageRules": [
     {
       "matchDatasources": ["jenkins-plugins"],
-      "constraintsFiltering": "strict",
-      "constraints": { "jenkins": ">=2.516.3" },
-      "minimumReleaseAge": "0 seconds",
+      "matchPackageNames": ["opentelemetry"],
+      "allowedVersions": "<2.8.0",
       "ignoreUnstable": false,
+      "minimumReleaseAge": "0 seconds",
       "recreateWhen": "always",
       "prHourlyLimit": 0
     }

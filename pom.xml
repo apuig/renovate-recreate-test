@@ -5,7 +5,8 @@
   <artifactId>unstable-version-test</artifactId>
   <version>1.0</version>
   <properties>
-    <!-- Pin to 2.7.1 stable; allowedVersions '<2.8.0' will make Renovate propose 2.8.0-rc3 -->
-    <opentelemetry.version>2.7.1</opentelemetry.version>
+    <!-- sonargraph-integration: latest stable=5.0.2, latest RC=5.0.3-rc316 (2025-10-23) -->
+    <!-- With ignoreUnstable:false -> should propose RC; with default true -> should propose 5.0.2 -->
+    <sonargraph-integration.version>5.0.1</sonargraph-integration.version>
   </properties>
 </project>

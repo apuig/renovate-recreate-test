@@ -12,8 +12,6 @@
   "packageRules": [
     {
       "matchDatasources": ["jenkins-plugins"],
-      "matchPackageNames": ["opentelemetry"],
-      "allowedVersions": "<2.8.0",
       "ignoreUnstable": false,
       "minimumReleaseAge": "0 seconds",
       "recreateWhen": "always",
